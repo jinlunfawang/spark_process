@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+package com.bilibili.sycpb.flink.api;
+option java_package = "com.bilibili.sycpb.flink.api";
+option java_outer_classname = "AvidAttributeProfile";
+
+message AvidAttribute {
+    required int64 mid = 1;
+    optional int32 tid = 2;
+    optional int32 sub_tid = 3;
+    repeated int64 tags = 4;
+    optional int32 video_duration = 5;
+    optional int32 is_bussiness	= 6;
+    required int64 avid = 7;
+}
