@@ -11,5 +11,8 @@ message AvidAttribute {
     repeated int64 tags = 4;
     optional int32 video_duration = 5;
     optional int32 is_bussiness	= 6;
-    required int64 avid = 7;
+    optional int32 ner_cid1 = 7;
+    optional int32 ner_cid2 = 8;
+    repeated int32 ner_entity_cates = 9;
+
 }

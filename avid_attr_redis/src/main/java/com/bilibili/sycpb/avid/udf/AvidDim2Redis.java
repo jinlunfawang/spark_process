@@ -35,10 +35,8 @@ public class AvidDim2Redis {
     private static void setupOptions() {
         // create Options object
         //可以进行分析的hive表路径
-        options.addOption(OptionBuilder.withLongOpt(INPUT_TABLE).withDescription("input table")
-                .hasArg().withArgName("[path1]").create());
-        options.addOption(OptionBuilder.withLongOpt(DICT_VERSION).withDescription("dict_version")
-                .hasArg().withArgName("dict_version").create());
+        options.addOption(OptionBuilder.withLongOpt(INPUT_TABLE).withDescription("input table").hasArg().withArgName("[path1]").create());
+        options.addOption(OptionBuilder.withLongOpt(DICT_VERSION).withDescription("dict_version").hasArg().withArgName("dict_version").create());
 
     }
 
@@ -70,16 +68,18 @@ public class AvidDim2Redis {
             logger.error("Unexpected exception:" + e.getMessage(), e);
         }
 
-        SparkSession spark = SparkSession
-                .builder()
-                .appName("avidDim2Redis")
-                .config(new SparkConf())
-                .enableHiveSupport()
-                .getOrCreate();
-        Dataset<Row> redisDF = spark.sql("select avid, mid, tid, sub_tid, tag_ids, video_duration, bussniess_avid from " + inputTable + " where dict_version=" + dict_version);
+        SparkSession spark = SparkSession.builder().appName("avidDim2Redis").config(new SparkConf()).enableHiveSupport().getOrCreate();
+       Dataset<Row> redisDF = spark.sql("select avid, mid, tid, sub_tid, tag_ids, video_duration, bussniess_avid,ner_cid1,ner_cid2,ner_entity_cates from " + inputTable + " where dict_version=" + dict_version);
+
         redisDF.show(10);
         Dataset<Row> persistDF = redisDF.persist(StorageLevel.MEMORY_AND_DISK());
-        persistDF.repartition(120).foreachPartition((ForeachPartitionFunction<Row>) itertator -> parseIterator(itertator));
+        persistDF.repartition(120).foreachPartition(new ForeachPartitionFunction<Row>() {
+            @Override
+            public void call(Iterator<Row> iterator) throws Exception {
+                parseIterator(iterator);
+            }
+        });
+        //  persistDF.repartition(120).foreachPartition((ForeachPartitionFunction<Row>) itertator -> parseIterator(itertator));
         spark.stop();
     }
 
@@ -94,13 +94,22 @@ public class AvidDim2Redis {
             String redisKey = row.getAs("avid").toString().trim();
             long[] tag_ids = Arrays.stream(row.getAs("tag_ids").toString().trim().split(",", -1)).mapToLong(Long::parseLong).toArray();
             List<Long> longList = Arrays.stream(tag_ids).boxed().collect(Collectors.toList());
+            List<Integer> nerEntityCatesList;
+            if (row.getAs("ner_entity_cates") == null) {
+                nerEntityCatesList = new ArrayList<>();
+            } else {
+                int[] ner_entity_cates = Arrays.stream(row.getAs("ner_entity_cates").toString().trim().split(",", -1)).limit(5).mapToInt(Integer::parseInt).toArray();
+                nerEntityCatesList = Arrays.stream(ner_entity_cates).boxed().collect(Collectors.toList());
+            }
 
             builder.setMid(Long.parseLong(row.getAs("mid").toString()))
                     .setTid(Integer.parseInt(row.getAs("tid").toString()))
                     .setSubTid(Integer.parseInt(row.getAs("sub_tid").toString().trim()))
                     .addAllTags(longList)
-                    .setVideoDuration(Integer.parseInt(row.getAs("video_duration").toString().trim()))
-                    .setIsBussiness(Integer.parseInt(row.getAs("bussniess_avid").toString().trim()));
+                    .setNerCid1(Integer.parseInt(row.getAs("ner_cid1").toString()))
+                    .setNerCid2(Integer.parseInt(row.getAs("ner_cid2").toString()))
+                    .addAllNerEntityCates(nerEntityCatesList)
+                    .setVideoDuration(Integer.parseInt(row.getAs("video_duration").toString().trim())).setIsBussiness(Integer.parseInt(row.getAs("bussniess_avid").toString().trim()));
 
 
             //构建对象

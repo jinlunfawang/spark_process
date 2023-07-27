@@ -75,15 +75,39 @@ public final class AvidAttributeProfile {
      */
     int getIsBussiness();
 
-    // required int64 avid = 7;
+    // optional int32 ner_cid1 = 7;
     /**
-     * <code>required int64 avid = 7;</code>
+     * <code>optional int32 ner_cid1 = 7;</code>
      */
-    boolean hasAvid();
+    boolean hasNerCid1();
     /**
-     * <code>required int64 avid = 7;</code>
+     * <code>optional int32 ner_cid1 = 7;</code>
      */
-    long getAvid();
+    int getNerCid1();
+
+    // optional int32 ner_cid2 = 8;
+    /**
+     * <code>optional int32 ner_cid2 = 8;</code>
+     */
+    boolean hasNerCid2();
+    /**
+     * <code>optional int32 ner_cid2 = 8;</code>
+     */
+    int getNerCid2();
+
+    // repeated int32 ner_entity_cates = 9;
+    /**
+     * <code>repeated int32 ner_entity_cates = 9;</code>
+     */
+    java.util.List<java.lang.Integer> getNerEntityCatesList();
+    /**
+     * <code>repeated int32 ner_entity_cates = 9;</code>
+     */
+    int getNerEntityCatesCount();
+    /**
+     * <code>repeated int32 ner_entity_cates = 9;</code>
+     */
+    int getNerEntityCates(int index);
   }
   /**
    * Protobuf type {@code com.bilibili.sycpb.flink.api.AvidAttribute}
@@ -184,7 +208,33 @@ public final class AvidAttributeProfile {
             }
             case 56: {
               bitField0_ |= 0x00000020;
-              avid_ = input.readInt64();
+              nerCid1_ = input.readInt32();
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000040;
+              nerCid2_ = input.readInt32();
+              break;
+            }
+            case 72: {
+              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+                nerEntityCates_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000100;
+              }
+              nerEntityCates_.add(input.readInt32());
+              break;
+            }
+            case 74: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100) && input.getBytesUntilLimit() > 0) {
+                nerEntityCates_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000100;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                nerEntityCates_.add(input.readInt32());
+              }
+              input.popLimit(limit);
               break;
             }
           }
@@ -197,6 +247,9 @@ public final class AvidAttributeProfile {
       } finally {
         if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           tags_ = java.util.Collections.unmodifiableList(tags_);
+        }
+        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+          nerEntityCates_ = java.util.Collections.unmodifiableList(nerEntityCates_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -333,20 +386,59 @@ public final class AvidAttributeProfile {
       return isBussiness_;
     }
 
-    // required int64 avid = 7;
-    public static final int AVID_FIELD_NUMBER = 7;
-    private long avid_;
+    // optional int32 ner_cid1 = 7;
+    public static final int NER_CID1_FIELD_NUMBER = 7;
+    private int nerCid1_;
     /**
-     * <code>required int64 avid = 7;</code>
+     * <code>optional int32 ner_cid1 = 7;</code>
      */
-    public boolean hasAvid() {
+    public boolean hasNerCid1() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>required int64 avid = 7;</code>
+     * <code>optional int32 ner_cid1 = 7;</code>
      */
-    public long getAvid() {
-      return avid_;
+    public int getNerCid1() {
+      return nerCid1_;
+    }
+
+    // optional int32 ner_cid2 = 8;
+    public static final int NER_CID2_FIELD_NUMBER = 8;
+    private int nerCid2_;
+    /**
+     * <code>optional int32 ner_cid2 = 8;</code>
+     */
+    public boolean hasNerCid2() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional int32 ner_cid2 = 8;</code>
+     */
+    public int getNerCid2() {
+      return nerCid2_;
+    }
+
+    // repeated int32 ner_entity_cates = 9;
+    public static final int NER_ENTITY_CATES_FIELD_NUMBER = 9;
+    private java.util.List<java.lang.Integer> nerEntityCates_;
+    /**
+     * <code>repeated int32 ner_entity_cates = 9;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getNerEntityCatesList() {
+      return nerEntityCates_;
+    }
+    /**
+     * <code>repeated int32 ner_entity_cates = 9;</code>
+     */
+    public int getNerEntityCatesCount() {
+      return nerEntityCates_.size();
+    }
+    /**
+     * <code>repeated int32 ner_entity_cates = 9;</code>
+     */
+    public int getNerEntityCates(int index) {
+      return nerEntityCates_.get(index);
     }
 
     private void initFields() {
@@ -356,7 +448,9 @@ public final class AvidAttributeProfile {
       tags_ = java.util.Collections.emptyList();
       videoDuration_ = 0;
       isBussiness_ = 0;
-      avid_ = 0L;
+      nerCid1_ = 0;
+      nerCid2_ = 0;
+      nerEntityCates_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -364,10 +458,6 @@ public final class AvidAttributeProfile {
       if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasMid()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasAvid()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -397,7 +487,13 @@ public final class AvidAttributeProfile {
         output.writeInt32(6, isBussiness_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeInt64(7, avid_);
+        output.writeInt32(7, nerCid1_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeInt32(8, nerCid2_);
+      }
+      for (int i = 0; i < nerEntityCates_.size(); i++) {
+        output.writeInt32(9, nerEntityCates_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -439,7 +535,20 @@ public final class AvidAttributeProfile {
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(7, avid_);
+          .computeInt32Size(7, nerCid1_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, nerCid2_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < nerEntityCates_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(nerEntityCates_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getNerEntityCatesList().size();
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -569,8 +678,12 @@ public final class AvidAttributeProfile {
         bitField0_ = (bitField0_ & ~0x00000010);
         isBussiness_ = 0;
         bitField0_ = (bitField0_ & ~0x00000020);
-        avid_ = 0L;
+        nerCid1_ = 0;
         bitField0_ = (bitField0_ & ~0x00000040);
+        nerCid2_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        nerEntityCates_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
@@ -627,7 +740,16 @@ public final class AvidAttributeProfile {
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.avid_ = avid_;
+        result.nerCid1_ = nerCid1_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.nerCid2_ = nerCid2_;
+        if (((bitField0_ & 0x00000100) == 0x00000100)) {
+          nerEntityCates_ = java.util.Collections.unmodifiableList(nerEntityCates_);
+          bitField0_ = (bitField0_ & ~0x00000100);
+        }
+        result.nerEntityCates_ = nerEntityCates_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -669,8 +791,21 @@ public final class AvidAttributeProfile {
         if (other.hasIsBussiness()) {
           setIsBussiness(other.getIsBussiness());
         }
-        if (other.hasAvid()) {
-          setAvid(other.getAvid());
+        if (other.hasNerCid1()) {
+          setNerCid1(other.getNerCid1());
+        }
+        if (other.hasNerCid2()) {
+          setNerCid2(other.getNerCid2());
+        }
+        if (!other.nerEntityCates_.isEmpty()) {
+          if (nerEntityCates_.isEmpty()) {
+            nerEntityCates_ = other.nerEntityCates_;
+            bitField0_ = (bitField0_ & ~0x00000100);
+          } else {
+            ensureNerEntityCatesIsMutable();
+            nerEntityCates_.addAll(other.nerEntityCates_);
+          }
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -678,10 +813,6 @@ public final class AvidAttributeProfile {
 
       public final boolean isInitialized() {
         if (!hasMid()) {
-          
-          return false;
-        }
-        if (!hasAvid()) {
           
           return false;
         }
@@ -938,35 +1069,134 @@ public final class AvidAttributeProfile {
         return this;
       }
 
-      // required int64 avid = 7;
-      private long avid_ ;
+      // optional int32 ner_cid1 = 7;
+      private int nerCid1_ ;
       /**
-       * <code>required int64 avid = 7;</code>
+       * <code>optional int32 ner_cid1 = 7;</code>
        */
-      public boolean hasAvid() {
+      public boolean hasNerCid1() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>required int64 avid = 7;</code>
+       * <code>optional int32 ner_cid1 = 7;</code>
        */
-      public long getAvid() {
-        return avid_;
+      public int getNerCid1() {
+        return nerCid1_;
       }
       /**
-       * <code>required int64 avid = 7;</code>
+       * <code>optional int32 ner_cid1 = 7;</code>
        */
-      public Builder setAvid(long value) {
+      public Builder setNerCid1(int value) {
         bitField0_ |= 0x00000040;
-        avid_ = value;
+        nerCid1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int64 avid = 7;</code>
+       * <code>optional int32 ner_cid1 = 7;</code>
        */
-      public Builder clearAvid() {
+      public Builder clearNerCid1() {
         bitField0_ = (bitField0_ & ~0x00000040);
-        avid_ = 0L;
+        nerCid1_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 ner_cid2 = 8;
+      private int nerCid2_ ;
+      /**
+       * <code>optional int32 ner_cid2 = 8;</code>
+       */
+      public boolean hasNerCid2() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional int32 ner_cid2 = 8;</code>
+       */
+      public int getNerCid2() {
+        return nerCid2_;
+      }
+      /**
+       * <code>optional int32 ner_cid2 = 8;</code>
+       */
+      public Builder setNerCid2(int value) {
+        bitField0_ |= 0x00000080;
+        nerCid2_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 ner_cid2 = 8;</code>
+       */
+      public Builder clearNerCid2() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        nerCid2_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // repeated int32 ner_entity_cates = 9;
+      private java.util.List<java.lang.Integer> nerEntityCates_ = java.util.Collections.emptyList();
+      private void ensureNerEntityCatesIsMutable() {
+        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
+          nerEntityCates_ = new java.util.ArrayList<java.lang.Integer>(nerEntityCates_);
+          bitField0_ |= 0x00000100;
+         }
+      }
+      /**
+       * <code>repeated int32 ner_entity_cates = 9;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getNerEntityCatesList() {
+        return java.util.Collections.unmodifiableList(nerEntityCates_);
+      }
+      /**
+       * <code>repeated int32 ner_entity_cates = 9;</code>
+       */
+      public int getNerEntityCatesCount() {
+        return nerEntityCates_.size();
+      }
+      /**
+       * <code>repeated int32 ner_entity_cates = 9;</code>
+       */
+      public int getNerEntityCates(int index) {
+        return nerEntityCates_.get(index);
+      }
+      /**
+       * <code>repeated int32 ner_entity_cates = 9;</code>
+       */
+      public Builder setNerEntityCates(
+          int index, int value) {
+        ensureNerEntityCatesIsMutable();
+        nerEntityCates_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 ner_entity_cates = 9;</code>
+       */
+      public Builder addNerEntityCates(int value) {
+        ensureNerEntityCatesIsMutable();
+        nerEntityCates_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 ner_entity_cates = 9;</code>
+       */
+      public Builder addAllNerEntityCates(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureNerEntityCatesIsMutable();
+        super.addAll(values, nerEntityCates_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 ner_entity_cates = 9;</code>
+       */
+      public Builder clearNerEntityCates() {
+        nerEntityCates_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
         return this;
       }
@@ -997,12 +1227,13 @@ public final class AvidAttributeProfile {
   static {
     java.lang.String[] descriptorData = {
       "\n\024avid_attribute.proto\022\034com.bilibili.syc" +
-      "pb.flink.api\"\204\001\n\rAvidAttribute\022\013\n\003mid\030\001 " +
+      "pb.flink.api\"\264\001\n\rAvidAttribute\022\013\n\003mid\030\001 " +
       "\002(\003\022\013\n\003tid\030\002 \001(\005\022\017\n\007sub_tid\030\003 \001(\005\022\014\n\004tag" +
       "s\030\004 \003(\003\022\026\n\016video_duration\030\005 \001(\005\022\024\n\014is_bu" +
-      "ssiness\030\006 \001(\005\022\014\n\004avid\030\007 \002(\003B4\n\034com.bilib" +
-      "ili.sycpb.flink.apiB\024AvidAttributeProfil" +
-      "e"
+      "ssiness\030\006 \001(\005\022\020\n\010ner_cid1\030\007 \001(\005\022\020\n\010ner_c" +
+      "id2\030\010 \001(\005\022\030\n\020ner_entity_cates\030\t \003(\005B4\n\034c" +
+      "om.bilibili.sycpb.flink.apiB\024AvidAttribu" +
+      "teProfile"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1014,7 +1245,7 @@ public final class AvidAttributeProfile {
           internal_static_com_bilibili_sycpb_flink_api_AvidAttribute_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_bilibili_sycpb_flink_api_AvidAttribute_descriptor,
-              new java.lang.String[] { "Mid", "Tid", "SubTid", "Tags", "VideoDuration", "IsBussiness", "Avid", });
+              new java.lang.String[] { "Mid", "Tid", "SubTid", "Tags", "VideoDuration", "IsBussiness", "NerCid1", "NerCid2", "NerEntityCates", });
           return null;
         }
       };

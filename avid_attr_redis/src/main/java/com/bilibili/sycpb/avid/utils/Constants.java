@@ -2,7 +2,7 @@ package com.bilibili.sycpb.avid.utils;
 
 
 public class Constants {
-    public static String REDIS_ADDRESS = "10.69.138.31:6800,10.70.27.14:6814,10.69.23.29:6811";
+    public static String REDIS_ADDRESS = "10.155.237.19:6845,10.155.224.19:6845,10.155.229.37:6846";
     public static String PID_REDIS_ADDRESS = "10.155.220.16:6811,10.155.224.37:6808,10.155.223.37:6811,10.155.234.19:6808";
     public static int PID_REDIS_EXPIRE = 1 * 1 * 30;
 
