@@ -29,4 +29,8 @@ public class Constants {
 
     public static String COMMENT_BASE = "10.155.227.17:6822,10.156.129.37:6822,10.156.143.36:6822";
     public static int COMMENT_BASE_EXPIRE = 1 * 24 * 3600;
+
+    // 稿件频控 Redis
+    public static String AVID_CONTROL_REIDIS = "172.27.228.6:6805,172.26.196.16:6812,172.26.200.15:6809,172.26.200.16:6809\n";
+    public static int AVID_CONTROL_REIDIS_EXPIRE = 2 * 24 * 3600;
 }
