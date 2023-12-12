@@ -69,7 +69,7 @@ public class AvidDim2Redis {
         }
 
         SparkSession spark = SparkSession.builder().appName("avidDim2Redis").config(new SparkConf()).enableHiveSupport().getOrCreate();
-       Dataset<Row> redisDF = spark.sql("select avid, mid, tid, sub_tid, tag_ids, video_duration, bussniess_avid,ner_cid1,ner_cid2,ner_entity_cates from " + inputTable + " where dict_version=" + dict_version);
+        Dataset<Row> redisDF = spark.sql("select avid, mid, tid, sub_tid, tag_ids, video_duration, bussniess_avid,ner_cid1,ner_cid2,ner_entity_cates,game_cid1, game_cid2, game_entity_cates, game_platform, game_play, game_ip, game_theme, game_style, game_element, tag_title, title as avid_title, content from " + inputTable + " where dict_version=" + dict_version);
 
         redisDF.show(10);
         Dataset<Row> persistDF = redisDF.persist(StorageLevel.MEMORY_AND_DISK());
@@ -85,6 +85,7 @@ public class AvidDim2Redis {
 
     private static void parseIterator(Iterator<Row> iterator) {
         JedisCluster jc = new JedisCluster(parseHosts(Constants.REDIS_ADDRESS));
+        //  JedisCluster jc = new JedisCluster(parseHosts(Constants.TEST_REIDIS));
         RedisRecordWriter redisRecordWriter = new RedisRecordWriter(jc, 1000);
         // 得到条数据封装为pb写redis
         while (iterator.hasNext()) {
@@ -94,13 +95,6 @@ public class AvidDim2Redis {
             String redisKey = row.getAs("avid").toString().trim();
             long[] tag_ids = Arrays.stream(row.getAs("tag_ids").toString().trim().split(",", -1)).mapToLong(Long::parseLong).toArray();
             List<Long> longList = Arrays.stream(tag_ids).boxed().collect(Collectors.toList());
-            List<Integer> nerEntityCatesList;
-            if (row.getAs("ner_entity_cates") == null) {
-                nerEntityCatesList = new ArrayList<>();
-            } else {
-                int[] ner_entity_cates = Arrays.stream(row.getAs("ner_entity_cates").toString().trim().split(",", -1)).limit(5).mapToInt(Integer::parseInt).toArray();
-                nerEntityCatesList = Arrays.stream(ner_entity_cates).boxed().collect(Collectors.toList());
-            }
 
             builder.setMid(Long.parseLong(row.getAs("mid").toString()))
                     .setTid(Integer.parseInt(row.getAs("tid").toString()))
@@ -108,11 +102,21 @@ public class AvidDim2Redis {
                     .addAllTags(longList)
                     .setNerCid1(Integer.parseInt(row.getAs("ner_cid1").toString()))
                     .setNerCid2(Integer.parseInt(row.getAs("ner_cid2").toString()))
-                    .addAllNerEntityCates(nerEntityCatesList)
-                    .setVideoDuration(Integer.parseInt(row.getAs("video_duration").toString().trim())).setIsBussiness(Integer.parseInt(row.getAs("bussniess_avid").toString().trim()));
-
-
-            //构建对象
+                    .addAllNerEntityCates(parseNerEntityCates(row,"ner_entity_cates"))
+                    .setVideoDuration(Integer.parseInt(row.getAs("video_duration").toString().trim()))
+                    .setIsBussiness(Integer.parseInt(row.getAs("bussniess_avid").toString().trim()))
+                    .setGameCid1(Integer.parseInt(row.getAs("game_cid1").toString()))
+                    .setGameCid2(Integer.parseInt(row.getAs("game_cid2").toString()))
+                    .addAllGameEntityCates(parseNerEntityCates(row,"game_entity_cates"))
+                    .addAllGameIp(parseNerEntityCates(row,"game_ip"))
+                    .addAllGamePlatform(parseNerEntityCates(row,"game_platform"))
+                    .addAllGamePlay(parseNerEntityCates(row,"game_play"))
+                    .addAllGameStyle(parseNerEntityCates(row,"game_style"))
+                    .addAllGameTheme(parseNerEntityCates(row,"game_theme"))
+                    .addAllGameElement(parseNerEntityCates(row,"game_element"))
+                    .setAvidTitle(row.getAs("avid_title").toString())
+                    .setTagTitle(row.getAs("tag_title").toString())
+                    .setContent(row.getAs("content").toString());
             AvidAttributeProfile.AvidAttribute avidAttribute = builder.build();
             //     写入redis
             String key = "avid_" + redisKey;
@@ -120,6 +124,19 @@ public class AvidDim2Redis {
             redisRecordWriter.write(redisByteSet);
         }
         redisRecordWriter.close();
+    }
+
+    private static List<Integer> parseNerEntityCates(Row row, String fieldName) {
+        if (row.getAs(fieldName) == null) {
+            return new ArrayList<>();
+        } else {
+            String nerEntityCatesStr = row.getAs(fieldName).toString().trim();
+            int[] ner_entity_cates = Arrays.stream(nerEntityCatesStr.split(",", -1))
+                    .limit(5)
+                    .mapToInt(Integer::parseInt)
+                    .toArray();
+            return Arrays.stream(ner_entity_cates).boxed().collect(Collectors.toList());
+        }
     }
 
     private static Set<HostAndPort> parseHosts(String sHosts) {
@@ -148,5 +165,6 @@ public class AvidDim2Redis {
         HelpFormatter formatter = new HelpFormatter();
         formatter.printHelp("TagIndexExporter", options);
     }
+
 
 }

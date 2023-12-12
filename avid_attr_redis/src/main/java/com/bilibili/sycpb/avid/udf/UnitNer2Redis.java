@@ -61,6 +61,9 @@ public class UnitNer2Redis {
         }
 
         SparkSession spark = SparkSession.builder().appName("UnitNer2Redis").config(new SparkConf()).enableHiveSupport().getOrCreate();
+                                                                                                                                      // concat('hello',null)      -->null
+                                                                                                                                      // concat_ws('_','hello',null)--> hello
+                                                                                                                                           // 原来:max(entity_cates)
         Dataset<Row> redisDF = spark.sql("select concat('unit_ner_',unit_id) as redis_key,concat_ws('_',max(cid1),max(cid2),coalesce(max(entity_cates),'0')) as redis_value from sycpb.dws_knowledge_graph_unit_id_final_encode_d_ql where log_date= " + log_date + " and cast(cid1 as bigint)>0 and cast(cid2 as bigint)>0  group by unit_id");
 
         redisDF.show(10);

@@ -108,6 +108,169 @@ public final class AvidAttributeProfile {
      * <code>repeated int32 ner_entity_cates = 9;</code>
      */
     int getNerEntityCates(int index);
+
+    // optional int32 game_cid1 = 10;
+    /**
+     * <code>optional int32 game_cid1 = 10;</code>
+     */
+    boolean hasGameCid1();
+    /**
+     * <code>optional int32 game_cid1 = 10;</code>
+     */
+    int getGameCid1();
+
+    // optional int32 game_cid2 = 11;
+    /**
+     * <code>optional int32 game_cid2 = 11;</code>
+     */
+    boolean hasGameCid2();
+    /**
+     * <code>optional int32 game_cid2 = 11;</code>
+     */
+    int getGameCid2();
+
+    // repeated int32 game_entity_cates = 12;
+    /**
+     * <code>repeated int32 game_entity_cates = 12;</code>
+     */
+    java.util.List<java.lang.Integer> getGameEntityCatesList();
+    /**
+     * <code>repeated int32 game_entity_cates = 12;</code>
+     */
+    int getGameEntityCatesCount();
+    /**
+     * <code>repeated int32 game_entity_cates = 12;</code>
+     */
+    int getGameEntityCates(int index);
+
+    // repeated int32 game_platform = 13;
+    /**
+     * <code>repeated int32 game_platform = 13;</code>
+     */
+    java.util.List<java.lang.Integer> getGamePlatformList();
+    /**
+     * <code>repeated int32 game_platform = 13;</code>
+     */
+    int getGamePlatformCount();
+    /**
+     * <code>repeated int32 game_platform = 13;</code>
+     */
+    int getGamePlatform(int index);
+
+    // repeated int32 game_play = 14;
+    /**
+     * <code>repeated int32 game_play = 14;</code>
+     */
+    java.util.List<java.lang.Integer> getGamePlayList();
+    /**
+     * <code>repeated int32 game_play = 14;</code>
+     */
+    int getGamePlayCount();
+    /**
+     * <code>repeated int32 game_play = 14;</code>
+     */
+    int getGamePlay(int index);
+
+    // repeated int32 game_ip = 15;
+    /**
+     * <code>repeated int32 game_ip = 15;</code>
+     */
+    java.util.List<java.lang.Integer> getGameIpList();
+    /**
+     * <code>repeated int32 game_ip = 15;</code>
+     */
+    int getGameIpCount();
+    /**
+     * <code>repeated int32 game_ip = 15;</code>
+     */
+    int getGameIp(int index);
+
+    // repeated int32 game_theme = 16;
+    /**
+     * <code>repeated int32 game_theme = 16;</code>
+     */
+    java.util.List<java.lang.Integer> getGameThemeList();
+    /**
+     * <code>repeated int32 game_theme = 16;</code>
+     */
+    int getGameThemeCount();
+    /**
+     * <code>repeated int32 game_theme = 16;</code>
+     */
+    int getGameTheme(int index);
+
+    // repeated int32 game_style = 17;
+    /**
+     * <code>repeated int32 game_style = 17;</code>
+     */
+    java.util.List<java.lang.Integer> getGameStyleList();
+    /**
+     * <code>repeated int32 game_style = 17;</code>
+     */
+    int getGameStyleCount();
+    /**
+     * <code>repeated int32 game_style = 17;</code>
+     */
+    int getGameStyle(int index);
+
+    // repeated int32 game_element = 18;
+    /**
+     * <code>repeated int32 game_element = 18;</code>
+     */
+    java.util.List<java.lang.Integer> getGameElementList();
+    /**
+     * <code>repeated int32 game_element = 18;</code>
+     */
+    int getGameElementCount();
+    /**
+     * <code>repeated int32 game_element = 18;</code>
+     */
+    int getGameElement(int index);
+
+    // optional string tag_title = 19;
+    /**
+     * <code>optional string tag_title = 19;</code>
+     */
+    boolean hasTagTitle();
+    /**
+     * <code>optional string tag_title = 19;</code>
+     */
+    java.lang.String getTagTitle();
+    /**
+     * <code>optional string tag_title = 19;</code>
+     */
+    com.google.protobuf.ByteString
+        getTagTitleBytes();
+
+    // optional string avid_title = 20;
+    /**
+     * <code>optional string avid_title = 20;</code>
+     */
+    boolean hasAvidTitle();
+    /**
+     * <code>optional string avid_title = 20;</code>
+     */
+    java.lang.String getAvidTitle();
+    /**
+     * <code>optional string avid_title = 20;</code>
+     */
+    com.google.protobuf.ByteString
+        getAvidTitleBytes();
+
+    // optional string content = 21;
+    /**
+     * <code>optional string content = 21;</code>
+     */
+    boolean hasContent();
+    /**
+     * <code>optional string content = 21;</code>
+     */
+    java.lang.String getContent();
+    /**
+     * <code>optional string content = 21;</code>
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
   }
   /**
    * Protobuf type {@code com.bilibili.sycpb.flink.api.AvidAttribute}
@@ -237,6 +400,178 @@ public final class AvidAttributeProfile {
               input.popLimit(limit);
               break;
             }
+            case 80: {
+              bitField0_ |= 0x00000080;
+              gameCid1_ = input.readInt32();
+              break;
+            }
+            case 88: {
+              bitField0_ |= 0x00000100;
+              gameCid2_ = input.readInt32();
+              break;
+            }
+            case 96: {
+              if (!((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
+                gameEntityCates_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000800;
+              }
+              gameEntityCates_.add(input.readInt32());
+              break;
+            }
+            case 98: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000800) == 0x00000800) && input.getBytesUntilLimit() > 0) {
+                gameEntityCates_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000800;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                gameEntityCates_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 104: {
+              if (!((mutable_bitField0_ & 0x00001000) == 0x00001000)) {
+                gamePlatform_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00001000;
+              }
+              gamePlatform_.add(input.readInt32());
+              break;
+            }
+            case 106: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00001000) == 0x00001000) && input.getBytesUntilLimit() > 0) {
+                gamePlatform_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00001000;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                gamePlatform_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 112: {
+              if (!((mutable_bitField0_ & 0x00002000) == 0x00002000)) {
+                gamePlay_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00002000;
+              }
+              gamePlay_.add(input.readInt32());
+              break;
+            }
+            case 114: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00002000) == 0x00002000) && input.getBytesUntilLimit() > 0) {
+                gamePlay_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00002000;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                gamePlay_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 120: {
+              if (!((mutable_bitField0_ & 0x00004000) == 0x00004000)) {
+                gameIp_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00004000;
+              }
+              gameIp_.add(input.readInt32());
+              break;
+            }
+            case 122: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00004000) == 0x00004000) && input.getBytesUntilLimit() > 0) {
+                gameIp_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00004000;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                gameIp_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 128: {
+              if (!((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+                gameTheme_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00008000;
+              }
+              gameTheme_.add(input.readInt32());
+              break;
+            }
+            case 130: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00008000) == 0x00008000) && input.getBytesUntilLimit() > 0) {
+                gameTheme_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00008000;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                gameTheme_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 136: {
+              if (!((mutable_bitField0_ & 0x00010000) == 0x00010000)) {
+                gameStyle_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00010000;
+              }
+              gameStyle_.add(input.readInt32());
+              break;
+            }
+            case 138: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00010000) == 0x00010000) && input.getBytesUntilLimit() > 0) {
+                gameStyle_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00010000;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                gameStyle_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 144: {
+              if (!((mutable_bitField0_ & 0x00020000) == 0x00020000)) {
+                gameElement_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00020000;
+              }
+              gameElement_.add(input.readInt32());
+              break;
+            }
+            case 146: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00020000) == 0x00020000) && input.getBytesUntilLimit() > 0) {
+                gameElement_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00020000;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                gameElement_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 154: {
+              bitField0_ |= 0x00000200;
+              tagTitle_ = input.readBytes();
+              break;
+            }
+            case 162: {
+              bitField0_ |= 0x00000400;
+              avidTitle_ = input.readBytes();
+              break;
+            }
+            case 170: {
+              bitField0_ |= 0x00000800;
+              content_ = input.readBytes();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -250,6 +585,27 @@ public final class AvidAttributeProfile {
         }
         if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
           nerEntityCates_ = java.util.Collections.unmodifiableList(nerEntityCates_);
+        }
+        if (((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
+          gameEntityCates_ = java.util.Collections.unmodifiableList(gameEntityCates_);
+        }
+        if (((mutable_bitField0_ & 0x00001000) == 0x00001000)) {
+          gamePlatform_ = java.util.Collections.unmodifiableList(gamePlatform_);
+        }
+        if (((mutable_bitField0_ & 0x00002000) == 0x00002000)) {
+          gamePlay_ = java.util.Collections.unmodifiableList(gamePlay_);
+        }
+        if (((mutable_bitField0_ & 0x00004000) == 0x00004000)) {
+          gameIp_ = java.util.Collections.unmodifiableList(gameIp_);
+        }
+        if (((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+          gameTheme_ = java.util.Collections.unmodifiableList(gameTheme_);
+        }
+        if (((mutable_bitField0_ & 0x00010000) == 0x00010000)) {
+          gameStyle_ = java.util.Collections.unmodifiableList(gameStyle_);
+        }
+        if (((mutable_bitField0_ & 0x00020000) == 0x00020000)) {
+          gameElement_ = java.util.Collections.unmodifiableList(gameElement_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -441,6 +797,328 @@ public final class AvidAttributeProfile {
       return nerEntityCates_.get(index);
     }
 
+    // optional int32 game_cid1 = 10;
+    public static final int GAME_CID1_FIELD_NUMBER = 10;
+    private int gameCid1_;
+    /**
+     * <code>optional int32 game_cid1 = 10;</code>
+     */
+    public boolean hasGameCid1() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional int32 game_cid1 = 10;</code>
+     */
+    public int getGameCid1() {
+      return gameCid1_;
+    }
+
+    // optional int32 game_cid2 = 11;
+    public static final int GAME_CID2_FIELD_NUMBER = 11;
+    private int gameCid2_;
+    /**
+     * <code>optional int32 game_cid2 = 11;</code>
+     */
+    public boolean hasGameCid2() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>optional int32 game_cid2 = 11;</code>
+     */
+    public int getGameCid2() {
+      return gameCid2_;
+    }
+
+    // repeated int32 game_entity_cates = 12;
+    public static final int GAME_ENTITY_CATES_FIELD_NUMBER = 12;
+    private java.util.List<java.lang.Integer> gameEntityCates_;
+    /**
+     * <code>repeated int32 game_entity_cates = 12;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getGameEntityCatesList() {
+      return gameEntityCates_;
+    }
+    /**
+     * <code>repeated int32 game_entity_cates = 12;</code>
+     */
+    public int getGameEntityCatesCount() {
+      return gameEntityCates_.size();
+    }
+    /**
+     * <code>repeated int32 game_entity_cates = 12;</code>
+     */
+    public int getGameEntityCates(int index) {
+      return gameEntityCates_.get(index);
+    }
+
+    // repeated int32 game_platform = 13;
+    public static final int GAME_PLATFORM_FIELD_NUMBER = 13;
+    private java.util.List<java.lang.Integer> gamePlatform_;
+    /**
+     * <code>repeated int32 game_platform = 13;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getGamePlatformList() {
+      return gamePlatform_;
+    }
+    /**
+     * <code>repeated int32 game_platform = 13;</code>
+     */
+    public int getGamePlatformCount() {
+      return gamePlatform_.size();
+    }
+    /**
+     * <code>repeated int32 game_platform = 13;</code>
+     */
+    public int getGamePlatform(int index) {
+      return gamePlatform_.get(index);
+    }
+
+    // repeated int32 game_play = 14;
+    public static final int GAME_PLAY_FIELD_NUMBER = 14;
+    private java.util.List<java.lang.Integer> gamePlay_;
+    /**
+     * <code>repeated int32 game_play = 14;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getGamePlayList() {
+      return gamePlay_;
+    }
+    /**
+     * <code>repeated int32 game_play = 14;</code>
+     */
+    public int getGamePlayCount() {
+      return gamePlay_.size();
+    }
+    /**
+     * <code>repeated int32 game_play = 14;</code>
+     */
+    public int getGamePlay(int index) {
+      return gamePlay_.get(index);
+    }
+
+    // repeated int32 game_ip = 15;
+    public static final int GAME_IP_FIELD_NUMBER = 15;
+    private java.util.List<java.lang.Integer> gameIp_;
+    /**
+     * <code>repeated int32 game_ip = 15;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getGameIpList() {
+      return gameIp_;
+    }
+    /**
+     * <code>repeated int32 game_ip = 15;</code>
+     */
+    public int getGameIpCount() {
+      return gameIp_.size();
+    }
+    /**
+     * <code>repeated int32 game_ip = 15;</code>
+     */
+    public int getGameIp(int index) {
+      return gameIp_.get(index);
+    }
+
+    // repeated int32 game_theme = 16;
+    public static final int GAME_THEME_FIELD_NUMBER = 16;
+    private java.util.List<java.lang.Integer> gameTheme_;
+    /**
+     * <code>repeated int32 game_theme = 16;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getGameThemeList() {
+      return gameTheme_;
+    }
+    /**
+     * <code>repeated int32 game_theme = 16;</code>
+     */
+    public int getGameThemeCount() {
+      return gameTheme_.size();
+    }
+    /**
+     * <code>repeated int32 game_theme = 16;</code>
+     */
+    public int getGameTheme(int index) {
+      return gameTheme_.get(index);
+    }
+
+    // repeated int32 game_style = 17;
+    public static final int GAME_STYLE_FIELD_NUMBER = 17;
+    private java.util.List<java.lang.Integer> gameStyle_;
+    /**
+     * <code>repeated int32 game_style = 17;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getGameStyleList() {
+      return gameStyle_;
+    }
+    /**
+     * <code>repeated int32 game_style = 17;</code>
+     */
+    public int getGameStyleCount() {
+      return gameStyle_.size();
+    }
+    /**
+     * <code>repeated int32 game_style = 17;</code>
+     */
+    public int getGameStyle(int index) {
+      return gameStyle_.get(index);
+    }
+
+    // repeated int32 game_element = 18;
+    public static final int GAME_ELEMENT_FIELD_NUMBER = 18;
+    private java.util.List<java.lang.Integer> gameElement_;
+    /**
+     * <code>repeated int32 game_element = 18;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getGameElementList() {
+      return gameElement_;
+    }
+    /**
+     * <code>repeated int32 game_element = 18;</code>
+     */
+    public int getGameElementCount() {
+      return gameElement_.size();
+    }
+    /**
+     * <code>repeated int32 game_element = 18;</code>
+     */
+    public int getGameElement(int index) {
+      return gameElement_.get(index);
+    }
+
+    // optional string tag_title = 19;
+    public static final int TAG_TITLE_FIELD_NUMBER = 19;
+    private java.lang.Object tagTitle_;
+    /**
+     * <code>optional string tag_title = 19;</code>
+     */
+    public boolean hasTagTitle() {
+      return ((bitField0_ & 0x00000200) == 0x00000200);
+    }
+    /**
+     * <code>optional string tag_title = 19;</code>
+     */
+    public java.lang.String getTagTitle() {
+      java.lang.Object ref = tagTitle_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          tagTitle_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string tag_title = 19;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTagTitleBytes() {
+      java.lang.Object ref = tagTitle_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tagTitle_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string avid_title = 20;
+    public static final int AVID_TITLE_FIELD_NUMBER = 20;
+    private java.lang.Object avidTitle_;
+    /**
+     * <code>optional string avid_title = 20;</code>
+     */
+    public boolean hasAvidTitle() {
+      return ((bitField0_ & 0x00000400) == 0x00000400);
+    }
+    /**
+     * <code>optional string avid_title = 20;</code>
+     */
+    public java.lang.String getAvidTitle() {
+      java.lang.Object ref = avidTitle_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          avidTitle_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string avid_title = 20;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAvidTitleBytes() {
+      java.lang.Object ref = avidTitle_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        avidTitle_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string content = 21;
+    public static final int CONTENT_FIELD_NUMBER = 21;
+    private java.lang.Object content_;
+    /**
+     * <code>optional string content = 21;</code>
+     */
+    public boolean hasContent() {
+      return ((bitField0_ & 0x00000800) == 0x00000800);
+    }
+    /**
+     * <code>optional string content = 21;</code>
+     */
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          content_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string content = 21;</code>
+     */
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       mid_ = 0L;
       tid_ = 0;
@@ -451,6 +1129,18 @@ public final class AvidAttributeProfile {
       nerCid1_ = 0;
       nerCid2_ = 0;
       nerEntityCates_ = java.util.Collections.emptyList();
+      gameCid1_ = 0;
+      gameCid2_ = 0;
+      gameEntityCates_ = java.util.Collections.emptyList();
+      gamePlatform_ = java.util.Collections.emptyList();
+      gamePlay_ = java.util.Collections.emptyList();
+      gameIp_ = java.util.Collections.emptyList();
+      gameTheme_ = java.util.Collections.emptyList();
+      gameStyle_ = java.util.Collections.emptyList();
+      gameElement_ = java.util.Collections.emptyList();
+      tagTitle_ = "";
+      avidTitle_ = "";
+      content_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -494,6 +1184,42 @@ public final class AvidAttributeProfile {
       }
       for (int i = 0; i < nerEntityCates_.size(); i++) {
         output.writeInt32(9, nerEntityCates_.get(i));
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeInt32(10, gameCid1_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeInt32(11, gameCid2_);
+      }
+      for (int i = 0; i < gameEntityCates_.size(); i++) {
+        output.writeInt32(12, gameEntityCates_.get(i));
+      }
+      for (int i = 0; i < gamePlatform_.size(); i++) {
+        output.writeInt32(13, gamePlatform_.get(i));
+      }
+      for (int i = 0; i < gamePlay_.size(); i++) {
+        output.writeInt32(14, gamePlay_.get(i));
+      }
+      for (int i = 0; i < gameIp_.size(); i++) {
+        output.writeInt32(15, gameIp_.get(i));
+      }
+      for (int i = 0; i < gameTheme_.size(); i++) {
+        output.writeInt32(16, gameTheme_.get(i));
+      }
+      for (int i = 0; i < gameStyle_.size(); i++) {
+        output.writeInt32(17, gameStyle_.get(i));
+      }
+      for (int i = 0; i < gameElement_.size(); i++) {
+        output.writeInt32(18, gameElement_.get(i));
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        output.writeBytes(19, getTagTitleBytes());
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        output.writeBytes(20, getAvidTitleBytes());
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeBytes(21, getContentBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -549,6 +1275,89 @@ public final class AvidAttributeProfile {
         }
         size += dataSize;
         size += 1 * getNerEntityCatesList().size();
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(10, gameCid1_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(11, gameCid2_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < gameEntityCates_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(gameEntityCates_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getGameEntityCatesList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < gamePlatform_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(gamePlatform_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getGamePlatformList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < gamePlay_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(gamePlay_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getGamePlayList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < gameIp_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(gameIp_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getGameIpList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < gameTheme_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(gameTheme_.get(i));
+        }
+        size += dataSize;
+        size += 2 * getGameThemeList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < gameStyle_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(gameStyle_.get(i));
+        }
+        size += dataSize;
+        size += 2 * getGameStyleList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < gameElement_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(gameElement_.get(i));
+        }
+        size += dataSize;
+        size += 2 * getGameElementList().size();
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(19, getTagTitleBytes());
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(20, getAvidTitleBytes());
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(21, getContentBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -684,6 +1493,30 @@ public final class AvidAttributeProfile {
         bitField0_ = (bitField0_ & ~0x00000080);
         nerEntityCates_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000100);
+        gameCid1_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        gameCid2_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000400);
+        gameEntityCates_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000800);
+        gamePlatform_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00001000);
+        gamePlay_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00002000);
+        gameIp_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00004000);
+        gameTheme_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00008000);
+        gameStyle_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00010000);
+        gameElement_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00020000);
+        tagTitle_ = "";
+        bitField0_ = (bitField0_ & ~0x00040000);
+        avidTitle_ = "";
+        bitField0_ = (bitField0_ & ~0x00080000);
+        content_ = "";
+        bitField0_ = (bitField0_ & ~0x00100000);
         return this;
       }
 
@@ -750,6 +1583,61 @@ public final class AvidAttributeProfile {
           bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.nerEntityCates_ = nerEntityCates_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.gameCid1_ = gameCid1_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.gameCid2_ = gameCid2_;
+        if (((bitField0_ & 0x00000800) == 0x00000800)) {
+          gameEntityCates_ = java.util.Collections.unmodifiableList(gameEntityCates_);
+          bitField0_ = (bitField0_ & ~0x00000800);
+        }
+        result.gameEntityCates_ = gameEntityCates_;
+        if (((bitField0_ & 0x00001000) == 0x00001000)) {
+          gamePlatform_ = java.util.Collections.unmodifiableList(gamePlatform_);
+          bitField0_ = (bitField0_ & ~0x00001000);
+        }
+        result.gamePlatform_ = gamePlatform_;
+        if (((bitField0_ & 0x00002000) == 0x00002000)) {
+          gamePlay_ = java.util.Collections.unmodifiableList(gamePlay_);
+          bitField0_ = (bitField0_ & ~0x00002000);
+        }
+        result.gamePlay_ = gamePlay_;
+        if (((bitField0_ & 0x00004000) == 0x00004000)) {
+          gameIp_ = java.util.Collections.unmodifiableList(gameIp_);
+          bitField0_ = (bitField0_ & ~0x00004000);
+        }
+        result.gameIp_ = gameIp_;
+        if (((bitField0_ & 0x00008000) == 0x00008000)) {
+          gameTheme_ = java.util.Collections.unmodifiableList(gameTheme_);
+          bitField0_ = (bitField0_ & ~0x00008000);
+        }
+        result.gameTheme_ = gameTheme_;
+        if (((bitField0_ & 0x00010000) == 0x00010000)) {
+          gameStyle_ = java.util.Collections.unmodifiableList(gameStyle_);
+          bitField0_ = (bitField0_ & ~0x00010000);
+        }
+        result.gameStyle_ = gameStyle_;
+        if (((bitField0_ & 0x00020000) == 0x00020000)) {
+          gameElement_ = java.util.Collections.unmodifiableList(gameElement_);
+          bitField0_ = (bitField0_ & ~0x00020000);
+        }
+        result.gameElement_ = gameElement_;
+        if (((from_bitField0_ & 0x00040000) == 0x00040000)) {
+          to_bitField0_ |= 0x00000200;
+        }
+        result.tagTitle_ = tagTitle_;
+        if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
+          to_bitField0_ |= 0x00000400;
+        }
+        result.avidTitle_ = avidTitle_;
+        if (((from_bitField0_ & 0x00100000) == 0x00100000)) {
+          to_bitField0_ |= 0x00000800;
+        }
+        result.content_ = content_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -805,6 +1693,97 @@ public final class AvidAttributeProfile {
             ensureNerEntityCatesIsMutable();
             nerEntityCates_.addAll(other.nerEntityCates_);
           }
+          onChanged();
+        }
+        if (other.hasGameCid1()) {
+          setGameCid1(other.getGameCid1());
+        }
+        if (other.hasGameCid2()) {
+          setGameCid2(other.getGameCid2());
+        }
+        if (!other.gameEntityCates_.isEmpty()) {
+          if (gameEntityCates_.isEmpty()) {
+            gameEntityCates_ = other.gameEntityCates_;
+            bitField0_ = (bitField0_ & ~0x00000800);
+          } else {
+            ensureGameEntityCatesIsMutable();
+            gameEntityCates_.addAll(other.gameEntityCates_);
+          }
+          onChanged();
+        }
+        if (!other.gamePlatform_.isEmpty()) {
+          if (gamePlatform_.isEmpty()) {
+            gamePlatform_ = other.gamePlatform_;
+            bitField0_ = (bitField0_ & ~0x00001000);
+          } else {
+            ensureGamePlatformIsMutable();
+            gamePlatform_.addAll(other.gamePlatform_);
+          }
+          onChanged();
+        }
+        if (!other.gamePlay_.isEmpty()) {
+          if (gamePlay_.isEmpty()) {
+            gamePlay_ = other.gamePlay_;
+            bitField0_ = (bitField0_ & ~0x00002000);
+          } else {
+            ensureGamePlayIsMutable();
+            gamePlay_.addAll(other.gamePlay_);
+          }
+          onChanged();
+        }
+        if (!other.gameIp_.isEmpty()) {
+          if (gameIp_.isEmpty()) {
+            gameIp_ = other.gameIp_;
+            bitField0_ = (bitField0_ & ~0x00004000);
+          } else {
+            ensureGameIpIsMutable();
+            gameIp_.addAll(other.gameIp_);
+          }
+          onChanged();
+        }
+        if (!other.gameTheme_.isEmpty()) {
+          if (gameTheme_.isEmpty()) {
+            gameTheme_ = other.gameTheme_;
+            bitField0_ = (bitField0_ & ~0x00008000);
+          } else {
+            ensureGameThemeIsMutable();
+            gameTheme_.addAll(other.gameTheme_);
+          }
+          onChanged();
+        }
+        if (!other.gameStyle_.isEmpty()) {
+          if (gameStyle_.isEmpty()) {
+            gameStyle_ = other.gameStyle_;
+            bitField0_ = (bitField0_ & ~0x00010000);
+          } else {
+            ensureGameStyleIsMutable();
+            gameStyle_.addAll(other.gameStyle_);
+          }
+          onChanged();
+        }
+        if (!other.gameElement_.isEmpty()) {
+          if (gameElement_.isEmpty()) {
+            gameElement_ = other.gameElement_;
+            bitField0_ = (bitField0_ & ~0x00020000);
+          } else {
+            ensureGameElementIsMutable();
+            gameElement_.addAll(other.gameElement_);
+          }
+          onChanged();
+        }
+        if (other.hasTagTitle()) {
+          bitField0_ |= 0x00040000;
+          tagTitle_ = other.tagTitle_;
+          onChanged();
+        }
+        if (other.hasAvidTitle()) {
+          bitField0_ |= 0x00080000;
+          avidTitle_ = other.avidTitle_;
+          onChanged();
+        }
+        if (other.hasContent()) {
+          bitField0_ |= 0x00100000;
+          content_ = other.content_;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -1201,6 +2180,756 @@ public final class AvidAttributeProfile {
         return this;
       }
 
+      // optional int32 game_cid1 = 10;
+      private int gameCid1_ ;
+      /**
+       * <code>optional int32 game_cid1 = 10;</code>
+       */
+      public boolean hasGameCid1() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       * <code>optional int32 game_cid1 = 10;</code>
+       */
+      public int getGameCid1() {
+        return gameCid1_;
+      }
+      /**
+       * <code>optional int32 game_cid1 = 10;</code>
+       */
+      public Builder setGameCid1(int value) {
+        bitField0_ |= 0x00000200;
+        gameCid1_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 game_cid1 = 10;</code>
+       */
+      public Builder clearGameCid1() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        gameCid1_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 game_cid2 = 11;
+      private int gameCid2_ ;
+      /**
+       * <code>optional int32 game_cid2 = 11;</code>
+       */
+      public boolean hasGameCid2() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       * <code>optional int32 game_cid2 = 11;</code>
+       */
+      public int getGameCid2() {
+        return gameCid2_;
+      }
+      /**
+       * <code>optional int32 game_cid2 = 11;</code>
+       */
+      public Builder setGameCid2(int value) {
+        bitField0_ |= 0x00000400;
+        gameCid2_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 game_cid2 = 11;</code>
+       */
+      public Builder clearGameCid2() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        gameCid2_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // repeated int32 game_entity_cates = 12;
+      private java.util.List<java.lang.Integer> gameEntityCates_ = java.util.Collections.emptyList();
+      private void ensureGameEntityCatesIsMutable() {
+        if (!((bitField0_ & 0x00000800) == 0x00000800)) {
+          gameEntityCates_ = new java.util.ArrayList<java.lang.Integer>(gameEntityCates_);
+          bitField0_ |= 0x00000800;
+         }
+      }
+      /**
+       * <code>repeated int32 game_entity_cates = 12;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getGameEntityCatesList() {
+        return java.util.Collections.unmodifiableList(gameEntityCates_);
+      }
+      /**
+       * <code>repeated int32 game_entity_cates = 12;</code>
+       */
+      public int getGameEntityCatesCount() {
+        return gameEntityCates_.size();
+      }
+      /**
+       * <code>repeated int32 game_entity_cates = 12;</code>
+       */
+      public int getGameEntityCates(int index) {
+        return gameEntityCates_.get(index);
+      }
+      /**
+       * <code>repeated int32 game_entity_cates = 12;</code>
+       */
+      public Builder setGameEntityCates(
+          int index, int value) {
+        ensureGameEntityCatesIsMutable();
+        gameEntityCates_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_entity_cates = 12;</code>
+       */
+      public Builder addGameEntityCates(int value) {
+        ensureGameEntityCatesIsMutable();
+        gameEntityCates_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_entity_cates = 12;</code>
+       */
+      public Builder addAllGameEntityCates(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureGameEntityCatesIsMutable();
+        super.addAll(values, gameEntityCates_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_entity_cates = 12;</code>
+       */
+      public Builder clearGameEntityCates() {
+        gameEntityCates_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000800);
+        onChanged();
+        return this;
+      }
+
+      // repeated int32 game_platform = 13;
+      private java.util.List<java.lang.Integer> gamePlatform_ = java.util.Collections.emptyList();
+      private void ensureGamePlatformIsMutable() {
+        if (!((bitField0_ & 0x00001000) == 0x00001000)) {
+          gamePlatform_ = new java.util.ArrayList<java.lang.Integer>(gamePlatform_);
+          bitField0_ |= 0x00001000;
+         }
+      }
+      /**
+       * <code>repeated int32 game_platform = 13;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getGamePlatformList() {
+        return java.util.Collections.unmodifiableList(gamePlatform_);
+      }
+      /**
+       * <code>repeated int32 game_platform = 13;</code>
+       */
+      public int getGamePlatformCount() {
+        return gamePlatform_.size();
+      }
+      /**
+       * <code>repeated int32 game_platform = 13;</code>
+       */
+      public int getGamePlatform(int index) {
+        return gamePlatform_.get(index);
+      }
+      /**
+       * <code>repeated int32 game_platform = 13;</code>
+       */
+      public Builder setGamePlatform(
+          int index, int value) {
+        ensureGamePlatformIsMutable();
+        gamePlatform_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_platform = 13;</code>
+       */
+      public Builder addGamePlatform(int value) {
+        ensureGamePlatformIsMutable();
+        gamePlatform_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_platform = 13;</code>
+       */
+      public Builder addAllGamePlatform(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureGamePlatformIsMutable();
+        super.addAll(values, gamePlatform_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_platform = 13;</code>
+       */
+      public Builder clearGamePlatform() {
+        gamePlatform_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00001000);
+        onChanged();
+        return this;
+      }
+
+      // repeated int32 game_play = 14;
+      private java.util.List<java.lang.Integer> gamePlay_ = java.util.Collections.emptyList();
+      private void ensureGamePlayIsMutable() {
+        if (!((bitField0_ & 0x00002000) == 0x00002000)) {
+          gamePlay_ = new java.util.ArrayList<java.lang.Integer>(gamePlay_);
+          bitField0_ |= 0x00002000;
+         }
+      }
+      /**
+       * <code>repeated int32 game_play = 14;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getGamePlayList() {
+        return java.util.Collections.unmodifiableList(gamePlay_);
+      }
+      /**
+       * <code>repeated int32 game_play = 14;</code>
+       */
+      public int getGamePlayCount() {
+        return gamePlay_.size();
+      }
+      /**
+       * <code>repeated int32 game_play = 14;</code>
+       */
+      public int getGamePlay(int index) {
+        return gamePlay_.get(index);
+      }
+      /**
+       * <code>repeated int32 game_play = 14;</code>
+       */
+      public Builder setGamePlay(
+          int index, int value) {
+        ensureGamePlayIsMutable();
+        gamePlay_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_play = 14;</code>
+       */
+      public Builder addGamePlay(int value) {
+        ensureGamePlayIsMutable();
+        gamePlay_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_play = 14;</code>
+       */
+      public Builder addAllGamePlay(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureGamePlayIsMutable();
+        super.addAll(values, gamePlay_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_play = 14;</code>
+       */
+      public Builder clearGamePlay() {
+        gamePlay_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00002000);
+        onChanged();
+        return this;
+      }
+
+      // repeated int32 game_ip = 15;
+      private java.util.List<java.lang.Integer> gameIp_ = java.util.Collections.emptyList();
+      private void ensureGameIpIsMutable() {
+        if (!((bitField0_ & 0x00004000) == 0x00004000)) {
+          gameIp_ = new java.util.ArrayList<java.lang.Integer>(gameIp_);
+          bitField0_ |= 0x00004000;
+         }
+      }
+      /**
+       * <code>repeated int32 game_ip = 15;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getGameIpList() {
+        return java.util.Collections.unmodifiableList(gameIp_);
+      }
+      /**
+       * <code>repeated int32 game_ip = 15;</code>
+       */
+      public int getGameIpCount() {
+        return gameIp_.size();
+      }
+      /**
+       * <code>repeated int32 game_ip = 15;</code>
+       */
+      public int getGameIp(int index) {
+        return gameIp_.get(index);
+      }
+      /**
+       * <code>repeated int32 game_ip = 15;</code>
+       */
+      public Builder setGameIp(
+          int index, int value) {
+        ensureGameIpIsMutable();
+        gameIp_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_ip = 15;</code>
+       */
+      public Builder addGameIp(int value) {
+        ensureGameIpIsMutable();
+        gameIp_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_ip = 15;</code>
+       */
+      public Builder addAllGameIp(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureGameIpIsMutable();
+        super.addAll(values, gameIp_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_ip = 15;</code>
+       */
+      public Builder clearGameIp() {
+        gameIp_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00004000);
+        onChanged();
+        return this;
+      }
+
+      // repeated int32 game_theme = 16;
+      private java.util.List<java.lang.Integer> gameTheme_ = java.util.Collections.emptyList();
+      private void ensureGameThemeIsMutable() {
+        if (!((bitField0_ & 0x00008000) == 0x00008000)) {
+          gameTheme_ = new java.util.ArrayList<java.lang.Integer>(gameTheme_);
+          bitField0_ |= 0x00008000;
+         }
+      }
+      /**
+       * <code>repeated int32 game_theme = 16;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getGameThemeList() {
+        return java.util.Collections.unmodifiableList(gameTheme_);
+      }
+      /**
+       * <code>repeated int32 game_theme = 16;</code>
+       */
+      public int getGameThemeCount() {
+        return gameTheme_.size();
+      }
+      /**
+       * <code>repeated int32 game_theme = 16;</code>
+       */
+      public int getGameTheme(int index) {
+        return gameTheme_.get(index);
+      }
+      /**
+       * <code>repeated int32 game_theme = 16;</code>
+       */
+      public Builder setGameTheme(
+          int index, int value) {
+        ensureGameThemeIsMutable();
+        gameTheme_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_theme = 16;</code>
+       */
+      public Builder addGameTheme(int value) {
+        ensureGameThemeIsMutable();
+        gameTheme_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_theme = 16;</code>
+       */
+      public Builder addAllGameTheme(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureGameThemeIsMutable();
+        super.addAll(values, gameTheme_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_theme = 16;</code>
+       */
+      public Builder clearGameTheme() {
+        gameTheme_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00008000);
+        onChanged();
+        return this;
+      }
+
+      // repeated int32 game_style = 17;
+      private java.util.List<java.lang.Integer> gameStyle_ = java.util.Collections.emptyList();
+      private void ensureGameStyleIsMutable() {
+        if (!((bitField0_ & 0x00010000) == 0x00010000)) {
+          gameStyle_ = new java.util.ArrayList<java.lang.Integer>(gameStyle_);
+          bitField0_ |= 0x00010000;
+         }
+      }
+      /**
+       * <code>repeated int32 game_style = 17;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getGameStyleList() {
+        return java.util.Collections.unmodifiableList(gameStyle_);
+      }
+      /**
+       * <code>repeated int32 game_style = 17;</code>
+       */
+      public int getGameStyleCount() {
+        return gameStyle_.size();
+      }
+      /**
+       * <code>repeated int32 game_style = 17;</code>
+       */
+      public int getGameStyle(int index) {
+        return gameStyle_.get(index);
+      }
+      /**
+       * <code>repeated int32 game_style = 17;</code>
+       */
+      public Builder setGameStyle(
+          int index, int value) {
+        ensureGameStyleIsMutable();
+        gameStyle_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_style = 17;</code>
+       */
+      public Builder addGameStyle(int value) {
+        ensureGameStyleIsMutable();
+        gameStyle_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_style = 17;</code>
+       */
+      public Builder addAllGameStyle(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureGameStyleIsMutable();
+        super.addAll(values, gameStyle_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_style = 17;</code>
+       */
+      public Builder clearGameStyle() {
+        gameStyle_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00010000);
+        onChanged();
+        return this;
+      }
+
+      // repeated int32 game_element = 18;
+      private java.util.List<java.lang.Integer> gameElement_ = java.util.Collections.emptyList();
+      private void ensureGameElementIsMutable() {
+        if (!((bitField0_ & 0x00020000) == 0x00020000)) {
+          gameElement_ = new java.util.ArrayList<java.lang.Integer>(gameElement_);
+          bitField0_ |= 0x00020000;
+         }
+      }
+      /**
+       * <code>repeated int32 game_element = 18;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getGameElementList() {
+        return java.util.Collections.unmodifiableList(gameElement_);
+      }
+      /**
+       * <code>repeated int32 game_element = 18;</code>
+       */
+      public int getGameElementCount() {
+        return gameElement_.size();
+      }
+      /**
+       * <code>repeated int32 game_element = 18;</code>
+       */
+      public int getGameElement(int index) {
+        return gameElement_.get(index);
+      }
+      /**
+       * <code>repeated int32 game_element = 18;</code>
+       */
+      public Builder setGameElement(
+          int index, int value) {
+        ensureGameElementIsMutable();
+        gameElement_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_element = 18;</code>
+       */
+      public Builder addGameElement(int value) {
+        ensureGameElementIsMutable();
+        gameElement_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_element = 18;</code>
+       */
+      public Builder addAllGameElement(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureGameElementIsMutable();
+        super.addAll(values, gameElement_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 game_element = 18;</code>
+       */
+      public Builder clearGameElement() {
+        gameElement_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00020000);
+        onChanged();
+        return this;
+      }
+
+      // optional string tag_title = 19;
+      private java.lang.Object tagTitle_ = "";
+      /**
+       * <code>optional string tag_title = 19;</code>
+       */
+      public boolean hasTagTitle() {
+        return ((bitField0_ & 0x00040000) == 0x00040000);
+      }
+      /**
+       * <code>optional string tag_title = 19;</code>
+       */
+      public java.lang.String getTagTitle() {
+        java.lang.Object ref = tagTitle_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          tagTitle_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string tag_title = 19;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTagTitleBytes() {
+        java.lang.Object ref = tagTitle_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tagTitle_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string tag_title = 19;</code>
+       */
+      public Builder setTagTitle(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00040000;
+        tagTitle_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string tag_title = 19;</code>
+       */
+      public Builder clearTagTitle() {
+        bitField0_ = (bitField0_ & ~0x00040000);
+        tagTitle_ = getDefaultInstance().getTagTitle();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string tag_title = 19;</code>
+       */
+      public Builder setTagTitleBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00040000;
+        tagTitle_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string avid_title = 20;
+      private java.lang.Object avidTitle_ = "";
+      /**
+       * <code>optional string avid_title = 20;</code>
+       */
+      public boolean hasAvidTitle() {
+        return ((bitField0_ & 0x00080000) == 0x00080000);
+      }
+      /**
+       * <code>optional string avid_title = 20;</code>
+       */
+      public java.lang.String getAvidTitle() {
+        java.lang.Object ref = avidTitle_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          avidTitle_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string avid_title = 20;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAvidTitleBytes() {
+        java.lang.Object ref = avidTitle_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          avidTitle_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string avid_title = 20;</code>
+       */
+      public Builder setAvidTitle(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00080000;
+        avidTitle_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string avid_title = 20;</code>
+       */
+      public Builder clearAvidTitle() {
+        bitField0_ = (bitField0_ & ~0x00080000);
+        avidTitle_ = getDefaultInstance().getAvidTitle();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string avid_title = 20;</code>
+       */
+      public Builder setAvidTitleBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00080000;
+        avidTitle_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string content = 21;
+      private java.lang.Object content_ = "";
+      /**
+       * <code>optional string content = 21;</code>
+       */
+      public boolean hasContent() {
+        return ((bitField0_ & 0x00100000) == 0x00100000);
+      }
+      /**
+       * <code>optional string content = 21;</code>
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string content = 21;</code>
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string content = 21;</code>
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00100000;
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string content = 21;</code>
+       */
+      public Builder clearContent() {
+        bitField0_ = (bitField0_ & ~0x00100000);
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string content = 21;</code>
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00100000;
+        content_ = value;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:com.bilibili.sycpb.flink.api.AvidAttribute)
     }
 
@@ -1227,13 +2956,19 @@ public final class AvidAttributeProfile {
   static {
     java.lang.String[] descriptorData = {
       "\n\024avid_attribute.proto\022\034com.bilibili.syc" +
-      "pb.flink.api\"\264\001\n\rAvidAttribute\022\013\n\003mid\030\001 " +
+      "pb.flink.api\"\246\003\n\rAvidAttribute\022\013\n\003mid\030\001 " +
       "\002(\003\022\013\n\003tid\030\002 \001(\005\022\017\n\007sub_tid\030\003 \001(\005\022\014\n\004tag" +
       "s\030\004 \003(\003\022\026\n\016video_duration\030\005 \001(\005\022\024\n\014is_bu" +
       "ssiness\030\006 \001(\005\022\020\n\010ner_cid1\030\007 \001(\005\022\020\n\010ner_c" +
-      "id2\030\010 \001(\005\022\030\n\020ner_entity_cates\030\t \003(\005B4\n\034c" +
-      "om.bilibili.sycpb.flink.apiB\024AvidAttribu" +
-      "teProfile"
+      "id2\030\010 \001(\005\022\030\n\020ner_entity_cates\030\t \003(\005\022\021\n\tg" +
+      "ame_cid1\030\n \001(\005\022\021\n\tgame_cid2\030\013 \001(\005\022\031\n\021gam" +
+      "e_entity_cates\030\014 \003(\005\022\025\n\rgame_platform\030\r " +
+      "\003(\005\022\021\n\tgame_play\030\016 \003(\005\022\017\n\007game_ip\030\017 \003(\005\022" +
+      "\022\n\ngame_theme\030\020 \003(\005\022\022\n\ngame_style\030\021 \003(\005\022",
+      "\024\n\014game_element\030\022 \003(\005\022\021\n\ttag_title\030\023 \001(\t" +
+      "\022\022\n\navid_title\030\024 \001(\t\022\017\n\007content\030\025 \001(\tB4\n" +
+      "\034com.bilibili.sycpb.flink.apiB\024AvidAttri" +
+      "buteProfile"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1245,7 +2980,7 @@ public final class AvidAttributeProfile {
           internal_static_com_bilibili_sycpb_flink_api_AvidAttribute_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_bilibili_sycpb_flink_api_AvidAttribute_descriptor,
-              new java.lang.String[] { "Mid", "Tid", "SubTid", "Tags", "VideoDuration", "IsBussiness", "NerCid1", "NerCid2", "NerEntityCates", });
+              new java.lang.String[] { "Mid", "Tid", "SubTid", "Tags", "VideoDuration", "IsBussiness", "NerCid1", "NerCid2", "NerEntityCates", "GameCid1", "GameCid2", "GameEntityCates", "GamePlatform", "GamePlay", "GameIp", "GameTheme", "GameStyle", "GameElement", "TagTitle", "AvidTitle", "Content", });
           return null;
         }
       };

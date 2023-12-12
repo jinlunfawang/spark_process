@@ -14,5 +14,17 @@ message AvidAttribute {
     optional int32 ner_cid1 = 7;
     optional int32 ner_cid2 = 8;
     repeated int32 ner_entity_cates = 9;
+    optional int32 game_cid1 = 10;
+    optional int32 game_cid2 = 11;
+    repeated int32 game_entity_cates = 12;
+    repeated int32 game_platform = 13;
+    repeated int32 game_play = 14;
+    repeated int32 game_ip = 15;
+    repeated int32 game_theme = 16;
+    repeated int32 game_style = 17;
+    repeated int32 game_element = 18;
+    optional string tag_title=19;
+    optional string avid_title=20;
+    optional string content=21;
 
 }

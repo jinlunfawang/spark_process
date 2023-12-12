@@ -3,7 +3,9 @@ package com.bilibili.sycpb.avid.utils;
 
 public class Constants {
     public static String REDIS_ADDRESS = "10.155.237.19:6845,10.155.224.19:6845,10.155.229.37:6846";
+
     public static String PID_REDIS_ADDRESS = "10.155.220.16:6811,10.155.224.37:6808,10.155.223.37:6811,10.155.234.19:6808";
+
     public static int PID_REDIS_EXPIRE = 1 * 1 * 30;
 
     public static String PID_REDIS_CLEAN_EVEN_ADDRESS = "10.156.168.17:6846,10.155.217.37:6817,10.156.169.36:6846,10.155.236.17:6818";
@@ -31,6 +33,9 @@ public class Constants {
     public static int COMMENT_BASE_EXPIRE = 1 * 24 * 3600;
 
     // 稿件频控 Redis
-    public static String AVID_CONTROL_REIDIS = "172.27.228.6:6805,172.26.196.16:6812,172.26.200.15:6809,172.26.200.16:6809\n";
+    public static String AVID_CONTROL_REIDIS = "172.27.228.6:6805,172.26.196.16:6812,172.26.200.15:6809,172.26.200.16:6809";
     public static int AVID_CONTROL_REIDIS_EXPIRE = 2 * 24 * 3600;
+
+    public static String TEST_REIDIS = "10.155.224.19:6815,10.155.217.17:6815";
+
 }
