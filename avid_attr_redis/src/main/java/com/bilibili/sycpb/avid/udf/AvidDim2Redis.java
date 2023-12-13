@@ -5,6 +5,7 @@ import com.bilibili.sycpb.avid.redis.RedisOutputByteFormat.RedisRecordWriter;
 import com.bilibili.sycpb.avid.utils.Constants;
 import com.bilibili.sycpb.flink.api.AvidAttributeProfile;
 import org.apache.commons.cli.*;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.util.GenericOptionsParser;
 import org.apache.spark.SparkConf;
@@ -102,18 +103,18 @@ public class AvidDim2Redis {
                     .addAllTags(longList)
                     .setNerCid1(Integer.parseInt(row.getAs("ner_cid1").toString()))
                     .setNerCid2(Integer.parseInt(row.getAs("ner_cid2").toString()))
-                    .addAllNerEntityCates(parseNerEntityCates(row,"ner_entity_cates"))
+                    .addAllNerEntityCates(parseNerEntityCates(row, "ner_entity_cates"))
                     .setVideoDuration(Integer.parseInt(row.getAs("video_duration").toString().trim()))
                     .setIsBussiness(Integer.parseInt(row.getAs("bussniess_avid").toString().trim()))
                     .setGameCid1(Integer.parseInt(row.getAs("game_cid1").toString()))
                     .setGameCid2(Integer.parseInt(row.getAs("game_cid2").toString()))
-                    .addAllGameEntityCates(parseNerEntityCates(row,"game_entity_cates"))
-                    .addAllGameIp(parseNerEntityCates(row,"game_ip"))
-                    .addAllGamePlatform(parseNerEntityCates(row,"game_platform"))
-                    .addAllGamePlay(parseNerEntityCates(row,"game_play"))
-                    .addAllGameStyle(parseNerEntityCates(row,"game_style"))
-                    .addAllGameTheme(parseNerEntityCates(row,"game_theme"))
-                    .addAllGameElement(parseNerEntityCates(row,"game_element"))
+                    .addAllGameEntityCates(parseNerEntityCates(row, "game_entity_cates"))
+                    .addAllGameIp(parseNerEntityCates(row, "game_ip"))
+                    .addAllGamePlatform(parseNerEntityCates(row, "game_platform"))
+                    .addAllGamePlay(parseNerEntityCates(row, "game_play"))
+                    .addAllGameStyle(parseNerEntityCates(row, "game_style"))
+                    .addAllGameTheme(parseNerEntityCates(row, "game_theme"))
+                    .addAllGameElement(parseNerEntityCates(row, "game_element"))
                     .setAvidTitle(row.getAs("avid_title").toString())
                     .setTagTitle(row.getAs("tag_title").toString())
                     .setContent(row.getAs("content").toString());
@@ -127,7 +128,7 @@ public class AvidDim2Redis {
     }
 
     private static List<Integer> parseNerEntityCates(Row row, String fieldName) {
-        if (row.getAs(fieldName) == null) {
+        if (row.getAs(fieldName) == null || StringUtils.isBlank(row.getAs(fieldName).toString().trim())) {
             return new ArrayList<>();
         } else {
             String nerEntityCatesStr = row.getAs(fieldName).toString().trim();
