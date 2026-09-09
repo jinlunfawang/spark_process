@@ -83,7 +83,6 @@ public class NERDim2Redis {
         persistDF.repartition(120).foreachPartition((ForeachPartitionFunction<Row>) itertator -> parseIterator(itertator));
         spark.stop();
     }
-
     private static void parseIterator(Iterator<Row> iterator) {
         JedisCluster jc = new JedisCluster(parseHosts(Constants.FEATURE_SYNC));
         RedisRecordWriter redisRecordWriter = new RedisRecordWriter(jc, 1000);

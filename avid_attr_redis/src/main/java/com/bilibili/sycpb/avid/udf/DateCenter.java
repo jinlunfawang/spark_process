@@ -88,6 +88,8 @@ public class DateCenter {
         } catch (Exception var14) {
             logger.error("Unexpected exception:" + var14.getMessage(), var14);
         }
+        System.setProperty("spark.executor.memory", "16g");
+
 
         SparkSession spark = SparkSession.builder().appName("DateCenter").config(new SparkConf()).enableHiveSupport().getOrCreate();
         Dataset<Row> dataset = spark.sql("select fea_id,mid,concat_ws('&_&',collect_set(fea)) as fea_array from bili_sycpb.offline_data_center_feature where fea is not null and length(fea) >5 and ( " + sparkSQLStr + " ) group by fea_id,mid");
